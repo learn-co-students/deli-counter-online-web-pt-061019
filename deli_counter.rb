@@ -1,29 +1,27 @@
 def line(array)
-  newarray = []
-  number = 1
-  if array.length >= 1
-  array.each do |name|
-  newarray << ("#{number}. #{name}")
-  number += 1
-  end
-  puts "The line is currently: #{newarray.join(" ")}"
-
-  else
-      puts "The line is currently empty."
-end
+  if array.length == 0
+    puts "The line is currently empty."
+  elsif array.length >= 1
+    newArray = []
+    array.each_with_index do |element, index|
+      newArray << "#{index+1}. #{element}"
+    end 
+    puts "The line is currently: #{newArray.join(" ")}"
+  end 
 end
 
-def take_a_number(array, string)
-  array << string
-  position = array.length - 0
-  puts "Welcome, #{string}. You are number #{position} in line."
+def take_a_number(array, element)
+  array << element
+  index = array.length - 0
+  puts "Welcome, #{element}. You are number #{index} in line."
 
 end
 
 def now_serving(array)
-if array == []
-puts "There is nobody waiting to be served!"
-else puts "Currently serving #{array[0]}."
-array.shift
+if array.length == 0
+  puts "There is nobody waiting to be served!"
+elsif array.length >= 1
+   puts "Currently serving #{array[0]}."
+   array.shift
 end
 end
